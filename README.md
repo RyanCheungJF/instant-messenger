@@ -45,6 +45,7 @@ Pull the images and start the server with `docker compose up`.
 
 ## Project Architecture
 
+Client -> HTTP Server -> RPC Server -> Redis
 
 ## Learning Points
 
@@ -72,7 +73,7 @@ i.e From a single .proto file, you can easily generate Go, Java, Python code wit
 
 ### kitex
 
-RPC Framework
+RPC Framework by ByteDance.
 
 *References*:
 
@@ -81,8 +82,25 @@ RPC Framework
 
 ### thrift
 
-Another RPC Framework
+Another RPC Framework but under Apache.
+
+`kitex_gen` contains RPC client (HTTP is client from architecture) and server code for RPC server.
+
+Generated from `idl_rpc.thrift`.
 
 *References*:
 
 - [what thrift is](https://stackoverflow.com/questions/20653240/what-is-rpc-framework-and-apache-thrift)
+
+### hertz
+
+HTTP Framework for Go by ByteDance.
+
+Generated from `idl_http.proto`.
+
+``
+
+*References*:
+
+- [official docs](https://www.cloudwego.io/docs/hertz/)
+- [github](https://github.com/cloudwego/hertz)
