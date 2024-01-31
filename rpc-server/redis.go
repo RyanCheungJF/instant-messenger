@@ -55,3 +55,36 @@ func (c *RedisClient) SaveMessage(ctx context.Context, roomID string, message *M
 
 	return nil
 }
+
+func (c *RedisClient) GetMessagesById(ctx context.Context, roomID string, start, end int64, reverse bool) ([]*Message, error) {
+	var (
+		rawMessages []string
+		messages    []*Message
+		err         error
+	)
+
+	// get the messages in either in order (first msg is earliest) else reverse
+	if reverse {
+		rawMessages, err = c.cli.ZRevRange(ctx, roomID, start, end).Result()
+		if err != nil {
+			return nil, err
+		}
+	} else {
+		rawMessages, err = c.cli.ZRange(ctx, roomID, start, end).Result()
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	for _, msg := range rawMessages {
+		temp := &Message{}
+		// deserialize message into a different format 
+		err := json.Unmarshal([]byte(msg), temp)
+		if err != nil {
+			return nil, err
+		}
+		messages = append(messages, temp)
+	}
+
+	return messages, nil
+}
