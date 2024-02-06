@@ -24,7 +24,7 @@ go work use http-server
 go work use rpc-server
 ```
 
-*References*: [here](https://stackoverflow.com/a/74106982)
+_References_: [here](https://stackoverflow.com/a/74106982)
 
 #### Install Kitex
 
@@ -51,13 +51,13 @@ Client -> HTTP Server -> RPC Server -> Redis
 
 ### Remote Procedure Call (RPC)
 
-*References*:
+_References_:
 
 - [what grpc is](https://grpc.io/docs/what-is-grpc/introduction/)
 
 ### proto
 
-Protocol buffers (protobufs) are a way to serialize data in an efficient way, 
+Protocol buffers (protobufs) are a way to serialize data in an efficient way,
 allowing better utilization of network resources.
 
 It is an interface definition language (IDL) that is language neutral.
@@ -65,7 +65,7 @@ i.e From a single .proto file, you can easily generate Go, Java, Python code wit
 
 `idl_http.proto` defines the API request and response types.
 
-*References*:
+_References_:
 
 - [what protobufs are](https://medium.com/javarevisited/what-are-protocol-buffers-and-why-they-are-widely-used-cbcb04d378b6)
 - [golang with protobufs](https://www.youtube.com/watch?v=qWN69yfRsVs)
@@ -75,7 +75,7 @@ i.e From a single .proto file, you can easily generate Go, Java, Python code wit
 
 RPC Framework by ByteDance.
 
-*References*:
+_References_:
 
 - [official docs](https://www.cloudwego.io/docs/kitex/getting-started/)
 - [github](https://github.com/cloudwego/kitex)
@@ -88,7 +88,7 @@ Another RPC Framework but under Apache.
 
 Generated from `idl_rpc.thrift`.
 
-*References*:
+_References_:
 
 - [what thrift is](https://stackoverflow.com/questions/20653240/what-is-rpc-framework-and-apache-thrift)
 
@@ -98,9 +98,8 @@ HTTP Framework for Go by ByteDance.
 
 Generated from `idl_http.proto`.
 
-``
-
-*References*:
+_References_:
 
 - [official docs](https://www.cloudwego.io/docs/hertz/)
 - [github](https://github.com/cloudwego/hertz)
+- [tut by weixing](https://o386706e92.larksuite.com/docx/QE9qdhCmsoiieAx6gWEuRxvWsRc)
